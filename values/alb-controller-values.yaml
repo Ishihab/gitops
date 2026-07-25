@@ -1,0 +1,15 @@
+serviceAccount:
+  name: aws-load-balancer-controller
+  create: true
+  annotations: {}
+clusterName: simple-social
+vpcId: vpc-0b9ea8990db413837
+region: us-east-1
+replicaCount: 1
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
