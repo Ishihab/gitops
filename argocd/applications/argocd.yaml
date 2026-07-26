@@ -4,19 +4,22 @@ metadata:
   name: argocd
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://argoproj.github.io/argo-helm
-    chart: argo-cd
-    targetRevision: "10.2.1"     
-    helm:
-      valueFiles:
-        - $values/values/argocd-values.yaml
   destination:
-    server: https://kubernetes.default.svc
     namespace: argocd
+    server: https://kubernetes.default.svc
+  sources: 
+    - repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: "10.2.1"
+      chart: argo-cd
+      helm:
+        valueFiles:
+          - $values/values/argocd-values.yaml
+    - repoURL: https://github.com/Ishihab/gitops.git
+      targetRevision: main
+      ref: values 
+  project: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-      enabled: true 
+      enabled: true
