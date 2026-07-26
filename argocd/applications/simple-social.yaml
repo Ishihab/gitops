@@ -9,6 +9,8 @@ spec:
   source:
     repoURL: https://github.com/Ishihab/gitops.git
     targetRevision: main
+    directory:
+      recurse: true
     path: apps/simple-social          
   destination:
     server: https://kubernetes.default.svc
