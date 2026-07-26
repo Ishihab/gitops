@@ -10,6 +10,16 @@ spec:
       namespace: kube-system
       jsonPointers:
         - /data
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: aws-load-balancer-webhook
+      jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: aws-load-balancer-webhook
+      jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
   destination:
     namespace: kube-system
     server: https://kubernetes.default.svc
