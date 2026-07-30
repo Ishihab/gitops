@@ -3,7 +3,6 @@ serviceAccount:
   create: true
   annotations: {}
 clusterName: simple-social
-vpcId: vpc-0c90a2687c0465b7d
 region: us-east-1
 replicaCount: 1
 resources:
